@@ -1,0 +1,101 @@
+<div style="padding: 20px;">
+<div class="header-flex-container">
+    <div>
+        <h1 style="color: gray;">Countries</h1>
+    </div>
+    <!-- SearchBar Begin -->
+    <div style="margin-left: auto;margin-right: 10px;">
+    <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="onSearchChange($event)"/>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    </div>
+    <!-- SearchBar End -->
+    <!-- Sort Select Begin -->
+    <div style="margin-right: 10px;">
+        <mat-form-field appearance="outline">
+            <mat-label>Sort By</mat-label>
+            <mat-select (selectionChange)="sortSelectionChange($event.value)">
+                <mat-option [value]="'CountryName'">
+                    Country Name
+                </mat-option>
+                <mat-option [value]="'NumberOfCases'">
+                    Number Of Cases
+                </mat-option>
+                <mat-option [value]="'NumberOfDeaths'">
+                    Number Of Deaths
+                </mat-option>
+                <mat-option [value]="'NumberOfRecovered'">
+                    Number Of Recovered
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <!-- Sort Select End -->
+
+    <!-- Pagenator Begin -->
+    <div>
+        <mat-paginator #paginato [length]="pageSize" [pageSize]="pagenatorValue" (page)="pagenatorEvent($event)">
+        </mat-paginator>
+    </div>
+    <!-- Pagenator End -->
+</div>
+
+<!-- cards Begin -->
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="33%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%" *ngFor="let country of dataSource">
+        <mat-card class="example-card">
+            <mat-card-header style="margin: 15px;">
+                <img [src]="country.countryInfo.flag" mat-card-avatar class="example-header-image">
+                <mat-card-title>{{country.country}}</mat-card-title>
+                <!-- <mat-card-subtitle></mat-card-subtitle> -->
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content style="padding: 15px;">
+                <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                    <div fxFlex="33%">
+                        <div fxLayout="column wrap">
+                            <p>Cases</p>
+                            <p>{{country.cases | number}}</p>
+                        </div>
+                    </div>
+                    <div fxFlex="33%">
+                        <div fxLayout="column wrap">
+                            <p>Deaths</p>
+                            <p>{{country.deaths | number}}</p>
+                        </div>
+                    </div>
+                    <div fxFlex="33%">
+                        <div fxLayout="column wrap">
+                            <p>Recovered</p>
+                            <p>{{country.recovered | number}}</p>
+                        </div>
+                    </div>
+                    <div fxFlex="33%">
+                        <div fxLayout="column wrap">
+                            <p>Tests</p>
+                            <p>{{country.tests | number}}</p>
+                        </div>
+                    </div>
+                    <div fxFlex="33%">
+                        <div fxLayout="column wrap">
+                            <p>Population</p>
+                            <p>{{country.population | millions}}</p>
+                        </div>
+                    </div>
+                    <div class="example-button-container">
+                        <button (click)="onEditButtonClick(country)" mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+            <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+        </mat-card>
+    </div>
+</div>
+</div>

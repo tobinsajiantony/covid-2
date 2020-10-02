@@ -1,0 +1,77 @@
+<div class="flex-container">
+<div *ngIf="dataRecieved" style="width: 100%;padding: 50px;">
+    <div style="padding-bottom: 20px;">
+        <h1><span>Total</span></h1>
+    </div>
+<!-- cards Begin -->
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="33%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%">
+        <mat-card style="border:1px solid rgb(112, 166, 236)">
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutAlign="space-around center">
+                    <h1 style="color: cornflowerblue;">Total Cases</h1>
+                    <h1 style="color: cornflowerblue;">{{summaryData.cases | number}}</h1>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex="33%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%">
+        <mat-card style="border:1px solid rgb(112, 166, 236)">
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutAlign="space-around center">
+                    <h1 style="color: cornflowerblue;">Total Deaths</h1>
+                    <h1 style="color: cornflowerblue;">{{summaryData.deaths | number}}</h1>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex="33%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%">
+        <mat-card style="border:1px solid rgb(112, 166, 236)">
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutAlign="space-around center">
+                    <h1 style="color: cornflowerblue;">Total Recovered</h1>
+                    <h1 style="color: cornflowerblue;">{{summaryData.recovered | number}}</h1>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<div style="padding-top: 20px;padding-bottom: 20px;">
+    <h1><span>Today</span></h1>
+</div>
+<!-- cards Begin -->
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+<div fxFlex="33%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%">
+    <mat-card style="border:1px solid rgb(112, 166, 236)">
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <h1 style="color: cornflowerblue;">Cases</h1>
+                <h1 style="color: cornflowerblue;">{{summaryData.todayCases | number}}</h1>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div fxFlex="33%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%">
+    <mat-card style="border:1px solid rgb(112, 166, 236)">
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <h1 style="color: cornflowerblue;">Deaths</h1>
+                <h1 style="color: cornflowerblue;">{{summaryData.todayDeaths | number}}</h1>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div fxFlex="33%" fxFlex.md="33%" fxFlex.sm="50%" fxFlex.xs="100%">
+    <mat-card style="border:1px solid rgb(112, 166, 236)">
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <h1 style="color: cornflowerblue;">Recovered</h1>
+                <h1 style="color: cornflowerblue;">{{summaryData.todayRecovered | number}}</h1>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+</div>
+</div>
+</div>

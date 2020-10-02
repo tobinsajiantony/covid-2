@@ -1,0 +1,34 @@
+<h1 mat-dialog-title style="padding: 10px;">{{data.country}}</h1>
+<form #editDataForm="ngForm" (ngSubmit)="onEditFormSubmit(editDataForm)">
+    <div mat-dialog-content>
+        <input type="hidden" [(ngModel)]="ids" name="id">
+        <mat-form-field style="padding: 10px;">
+            <mat-label>Cases</mat-label>
+            <input matInput type="number" pattern="^[0-9]{1,45}$" required [(ngModel)]="case" name="cases" #cases="ngModel">
+            <mat-error *ngIf="cases.invalid">Please Enter Valid Number</mat-error>
+        </mat-form-field>
+
+        <mat-form-field style="padding: 10px;">
+            <mat-label>Deaths</mat-label>
+            <input matInput type="number" pattern="^[0-9]{1,45}$" required [(ngModel)]="death" name="deaths" #deaths="ngModel">
+            <mat-error *ngIf="deaths.invalid">Please Enter Valid Number</mat-error>
+        </mat-form-field>
+
+        <mat-form-field style="padding: 10px;">
+            <mat-label>Recovered</mat-label>
+            <input matInput type="number" pattern="^[0-9]{1,45}$" required [(ngModel)]="recover" name="recovered" #recovered="ngModel">
+            <mat-error *ngIf="recovered.invalid">Please Enter Valid Number</mat-error>
+        </mat-form-field>
+
+        <mat-form-field style="padding: 10px;">
+            <mat-label>Tests</mat-label>
+            <input matInput type="number" pattern="^[0-9]{1,45}$" required [(ngModel)]="test" name="tests" #tests="ngModel">
+            <mat-error *ngIf="tests.invalid">Please Enter Valid Number</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button type="submit">Save</button>
+        <button mat-button (click)="onCloseClicked()" cdkFocusInitial>Cancel</button>
+    </div>
+</form>

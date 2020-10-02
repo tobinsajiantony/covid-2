@@ -1,0 +1,27 @@
+.flex-container {
+    display: flex;
+    height: 100%;
+    margin-top: auto;
+    margin-top: auto;
+  }
+
+h1 {
+    position: relative;
+    color: gray;
+}
+
+h1 span {
+    background-color: #fafafa;
+    padding-right: 10px;
+}
+
+h1:after {
+    content:"";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5em;
+    border-top: 1px solid gray;
+    z-index: -1;
+}
